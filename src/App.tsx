@@ -12,12 +12,11 @@ import { Slider } from "./components/Slider";
 // others
 import { ThemeToggle } from "./ThemeToggle";
 import { Spinner } from "./components/Spinner";
-import { GitHubLogoIcon } from "@radix-ui/react-icons";
+import { BellIcon } from "@chakra-ui/icons";
 import { Checkbox } from "./components/Checkbox";
 import { Label } from "./components/Label";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "./components/Tabs";
 import { Switch } from "./components/Switch";
-
 
 const App = () => {
   return (
@@ -48,28 +47,28 @@ const App = () => {
           <Button color="teal">Button</Button>
           <Button color="teal" variant="outline">
             Button
-            <GitHubLogoIcon />
+            <BellIcon />
           </Button>
           <Button color="teal" variant="ghost">
-            <GitHubLogoIcon />
+            <BellIcon />
             Button
           </Button>
         </Flex>
 
         <Flex gap="2">
           <IconButton size="xs">
-            <GitHubLogoIcon />
+            <BellIcon />
           </IconButton>
 
           <IconButton size="sm">
-            <GitHubLogoIcon />
+            <BellIcon />
           </IconButton>
           <IconButton>
-            <GitHubLogoIcon />
+            <BellIcon />
           </IconButton>
 
           <IconButton size="lg">
-            <GitHubLogoIcon />
+            <BellIcon />
           </IconButton>
         </Flex>
       </Flex>
@@ -90,7 +89,7 @@ const App = () => {
         />
         <Input
           placeholder="Placeholder"
-          contentLeft={<GitHubLogoIcon />}
+          contentLeft={<BellIcon />}
           variant="filled"
           contentRight={<Spinner size="xs" />}
         />
