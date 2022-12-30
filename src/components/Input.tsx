@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import { CSS, styled, VariantProps } from "../theme/stitches.config";
 import clsx from "clsx";
 

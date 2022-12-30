@@ -17,6 +17,7 @@ import { Checkbox } from "./components/Checkbox";
 import { Label } from "./components/Label";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "./components/Tabs";
 import { Switch } from "./components/Switch";
+import { RadioGroup, Radio } from "./components/Radio";
 
 const App = () => {
   return (
@@ -131,6 +132,13 @@ const App = () => {
             switch me
           </Label>
           <Switch size="lg" />
+        </Flex>
+
+        <Flex align="start" gap="3">
+          <RadioGroup>
+             <Radio value="3">Me</Radio> 
+             <Radio value="4">You</Radio> 
+          </RadioGroup>
         </Flex>
 
         <Flex gap="2" align="center">

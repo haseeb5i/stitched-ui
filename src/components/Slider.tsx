@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React from "react";
+import * as React from "react";
 import { styled, CSS } from "../theme/stitches.config";
 import * as SliderPrimitive from "@radix-ui/react-slider";
 

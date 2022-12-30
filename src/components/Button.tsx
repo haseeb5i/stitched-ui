@@ -87,7 +87,7 @@ export const Button = styled("button", {
       solid: {},
       outline: {
         borderWidth: "1px",
-        backgroundColor: "transparent",
+        backgroundColor: "transparent", // bg is already transparent?
       },
       ghost: {
         backgroundColor: "transparent",
