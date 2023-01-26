@@ -18,6 +18,7 @@ import { Label } from "./components/Label";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "./components/Tabs";
 import { Switch } from "./components/Switch";
 import { RadioGroup, Radio } from "./components/Radio";
+import { useEffect, useState } from "react";
 
 const App = () => {
   return (
@@ -136,8 +137,8 @@ const App = () => {
 
         <Flex align="start" gap="3">
           <RadioGroup>
-             <Radio value="3">Me</Radio> 
-             <Radio value="4">You</Radio> 
+            <Radio value="3">Me</Radio>
+            <Radio value="4">You</Radio>
           </RadioGroup>
         </Flex>
 

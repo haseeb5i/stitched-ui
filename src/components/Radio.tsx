@@ -28,6 +28,7 @@ const StyledIndicator = styled(RadioGroupPrimitive.Indicator, {
 const StyledRadio = styled(RadioGroupPrimitive.Item, {
   userSelect: "none",
   appearance: "none",
+  padding: 0,
   display: "inline-flex",
   alignItems: "center",
   justifyContent: "center",
