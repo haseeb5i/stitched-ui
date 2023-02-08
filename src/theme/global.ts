@@ -59,9 +59,9 @@ export const globalStyles = globalCss({
     padding: 0,
   },
   "button, input, optgroup, select, textarea": {
+    color: "inherit",
     fontFamily: "inherit",
     fontSize: "100%",
-    color: "inherit",
     lineHeight: "inherit",
     padding: 0,
     outline: "none",
