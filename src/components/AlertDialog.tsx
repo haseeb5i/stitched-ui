@@ -3,27 +3,32 @@ import { styled, CSS } from "../theme/stitches.config";
 import * as AlertDialogPrimitive from "@radix-ui/react-alert-dialog";
 import { overlayStyles } from "./Overlay";
 import { panelStyles } from "./Panel";
+import { contentShow } from "@/theme";
 
 const AlertDialog = AlertDialogPrimitive.Root;
 const AlertDialogTrigger = AlertDialogPrimitive.Trigger;
 
 const StyledOverlay = styled(AlertDialogPrimitive.Overlay, overlayStyles, {
-  position: "fixed",
-  top: 0,
-  right: 0,
-  bottom: 0,
-  left: 0,
+  display: "grid",
+  placeItems: "start center",
 });
 
 export const StyledContent = styled(AlertDialogPrimitive.Content, panelStyles, {
-  position: "fixed",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  minWidth: 200,
-  maxHeight: "85vh",
-  padding: "$4",
-  marginTop: "-5vh",
+  display: "flex",
+  flexDirection: "column",
+  position: "relative",
+  width: "100%",
+  outline: "transparent solid 2px",
+  outlineOffset: 2,
+  borderRadius: "$md",
+  backgroundColor: "$white",
+  color: "inherit",
+  marginTop: "$16",
+  marginBottom: "$16",
+  zIndex: 10,
+  boxShadow: "$lg",
+  maxWidth: "$md",
+  animation: `${contentShow} 150ms cubic-bezier(0.16, 1, 0.3, 1)`,
 
   "&:focus": {
     outline: "none",
@@ -40,17 +45,42 @@ const AlertDialogContent = React.forwardRef<
   AlertDialogContentProps
 >(({ children, ...props }, forwardedRef) => (
   <AlertDialogPrimitive.Portal>
-    <StyledOverlay />
-    <StyledContent {...props} ref={forwardedRef}>
-      {children}
-    </StyledContent>
+    <StyledOverlay>
+      <StyledContent {...props} ref={forwardedRef}>
+        {children}
+      </StyledContent>
+    </StyledOverlay>
   </AlertDialogPrimitive.Portal>
 ));
 
 AlertDialogContent.displayName = "AlertDialogContent";
 
-const AlertDialogTitle = AlertDialogPrimitive.Title;
-const AlertDialogDescription = AlertDialogPrimitive.Description;
+const AlertDialogTitle = styled(AlertDialogPrimitive.Title, {
+  flex: "0 1 0%",
+  paddingInline: "$6",
+  paddingTop: "$4",
+  paddingBottom: "$4",
+  fontSize: "$lg",
+  fontWeight: "$bold",
+});
+
+const AlertDialogBody = styled(AlertDialogPrimitive.Description, {
+  flex: "1 1 0%",
+  paddingInline: "$6",
+  paddingTop: "$2",
+  paddingBottom: "$2",
+});
+
+const AlertDialogFooter = styled("div", {
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "flex-end",
+  paddingInline: "$6",
+  paddingTop: "$4",
+  paddingBottom: "$4",
+  gap: "$3",
+});
+
 const AlertDialogAction = AlertDialogPrimitive.Action;
 const AlertDialogCancel = AlertDialogPrimitive.Cancel;
 
@@ -59,7 +89,27 @@ export {
   AlertDialogTrigger,
   AlertDialogContent,
   AlertDialogTitle,
-  AlertDialogDescription,
+  AlertDialogBody,
+  AlertDialogFooter,
   AlertDialogAction,
   AlertDialogCancel,
+};
+
+// example alert dialog
+export const ExampleAlertDialog = () => {
+  return (
+    <AlertDialog>
+      <AlertDialogTrigger>Trigger</AlertDialogTrigger>
+      <AlertDialogContent>
+        <AlertDialogTitle>Delete Customer</AlertDialogTitle>
+        <AlertDialogBody>
+          Are you sure? You can't undo this action afterwards.
+        </AlertDialogBody>
+        <AlertDialogFooter>
+          <AlertDialogCancel>Cancel</AlertDialogCancel>
+          <AlertDialogAction>Confirm</AlertDialogAction>
+        </AlertDialogFooter>
+      </AlertDialogContent>
+    </AlertDialog>
+  );
 };

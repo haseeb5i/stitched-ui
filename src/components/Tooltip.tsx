@@ -1,21 +1,27 @@
 import React from "react";
-import { styled } from "../theme/stitches.config";
+import { styled, type CSS } from "../theme/stitches.config";
 import * as TooltipPrimitive from "@radix-ui/react-tooltip";
-import { Box } from "./Box";
-import { Text } from "./Text";
-
-type TooltipPrimitiveProps = React.ComponentProps<typeof TooltipPrimitive.Root>;
-type TooltipProps = TooltipPrimitiveProps &
-  React.ComponentProps<typeof TooltipPrimitive.Content> & {
-    children: React.ReactElement;
-    content: React.ReactNode;
-    multiline?: boolean;
-  };
+import {
+  slideDownAndFade,
+  slideLeftAndFade,
+  slideRightAndFade,
+  slideUpAndFade,
+} from "@/theme";
 
 const StyledContent = styled(TooltipPrimitive.Content, {
-  backgroundColor: "$transparentPanel",
-  borderRadius: "$1",
+  borderRadius: "$md",
   padding: "$1 $2",
+  backgroundColor: "$white",
+
+  animationDuration: "400ms",
+  animationTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)",
+  willChange: "transform, opacity",
+  '&[data-state="delayed-open"]': {
+    '&[data-side="top"]': { animationName: slideDownAndFade },
+    '&[data-side="right"]': { animationName: slideLeftAndFade },
+    '&[data-side="bottom"]': { animationName: slideUpAndFade },
+    '&[data-side="left"]': { animationName: slideRightAndFade },
+  },
 
   variants: {
     multiline: {
@@ -27,15 +33,30 @@ const StyledContent = styled(TooltipPrimitive.Content, {
   },
 });
 
+const TooltipArrow = styled(TooltipPrimitive.Arrow, {
+  fill: "currentColor",
+  width: 11,
+  height: 5,
+});
+
+type TooltipPrimitiveProps = React.ComponentProps<typeof TooltipPrimitive.Root>;
+type TooltipProps = TooltipPrimitiveProps &
+  React.ComponentProps<typeof TooltipPrimitive.Content> & {
+    children: React.ReactElement;
+    content: React.ReactNode;
+    multiline?: boolean;
+    css?: CSS;
+  };
+
 export function Tooltip({
   children,
   content,
+  multiline,
   open,
   defaultOpen,
   onOpenChange,
   delayDuration,
   disableHoverableContent,
-  multiline,
   ...props
 }: TooltipProps) {
   const rootProps = {
@@ -45,6 +66,7 @@ export function Tooltip({
     delayDuration,
     disableHoverableContent,
   };
+
   return (
     <TooltipPrimitive.Root {...rootProps}>
       <TooltipPrimitive.Trigger asChild>{children}</TooltipPrimitive.Trigger>
@@ -56,25 +78,19 @@ export function Tooltip({
           {...props}
           multiline={multiline}
         >
-          <Text
-            size="1"
-            as="p"
-            css={{
-              color: "$loContrast",
-              lineHeight: multiline ? "20px" : (undefined as any),
-            }}
-          >
-            {content}
-          </Text>
-          <Box css={{ color: "$transparentExtreme" }}>
-            <TooltipPrimitive.Arrow
-              width={11}
-              height={5}
-              style={{ fill: "currentColor" }}
-            />
-          </Box>
+          {content}
+          <TooltipArrow />
         </StyledContent>
       </TooltipPrimitive.Portal>
     </TooltipPrimitive.Root>
   );
 }
+
+// example usage
+export const ExampleTooltip = () => {
+  return (
+    <Tooltip content="This is a tooltip">
+      <button>Hover me</button>
+    </Tooltip>
+  );
+};

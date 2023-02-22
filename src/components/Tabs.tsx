@@ -104,3 +104,16 @@ export const TabsContent = styled(TabsPrimitive.Content, {
     boxShadow: "inset 0 0 0 1px $slate8, 0 0 0 1px $slate8",
   },
 });
+
+export const ExampleTab = () => (
+  <Tabs defaultValue="0">
+    <TabsList variant="soft-rounded">
+      <TabsTrigger value="0">Tab 1</TabsTrigger>
+      <TabsTrigger value="1">Tab 2</TabsTrigger>
+      <TabsTrigger value="2">Tab 3</TabsTrigger>
+    </TabsList>
+    <TabsContent value="0">Content 1</TabsContent>
+    <TabsContent value="1">Content 2</TabsContent>
+    <TabsContent value="2">Content 3</TabsContent>
+  </Tabs>
+);

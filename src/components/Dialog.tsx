@@ -1,28 +1,34 @@
 import React from "react";
 import { styled, CSS } from "../theme/stitches.config";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
-import { Cross1Icon } from "@radix-ui/react-icons";
-import { panelStyles } from "./Panel";
-// import { IconButton } from "./IconButton";
+import { Button } from "./Button";
+import { CloseIcon } from "@chakra-ui/icons";
+import { overlayStyles } from "./Overlay";
+import { contentShow } from "@/theme";
 
 const Dialog = DialogPrimitive.Root;
 const DialogTrigger = DialogPrimitive.Trigger;
 
-const StyledOverlay = styled(DialogPrimitive.Overlay, {
-  backgroundColor: "rgba(0, 0, 0, 0.15)",
-  position: "fixed",
-  inset: 0,
-  zIndex: 9,
+const StyledOverlay = styled(DialogPrimitive.Overlay, overlayStyles, {
   display: "grid",
   placeItems: "center",
   overflowY: "auto",
 });
 
-const StyledContent = styled(DialogPrimitive.Content, panelStyles, {
-  minWidth: 200,
+const StyledContent = styled(DialogPrimitive.Content, {
+  display: "flex",
+  flexDirection: "column",
+  width: "100%",
+  maxWidth: "$md",
   maxHeight: "85vh",
-  padding: "$4",
+  outline: "transparent solid 2px",
+  outlineOffset: 2,
+  borderRadius: "$md",
+  backgroundColor: "$white",
+  marginBlock: "$16",
   willChange: "transform",
+  animation: `${contentShow} 150ms cubic-bezier(0.16, 1, 0.3, 1)`,
+  boxShadow: "$lg",
 
   "&:focus": {
     outline: "none",
@@ -33,12 +39,25 @@ const StyledCloseButton = styled(DialogPrimitive.Close, {
   position: "absolute",
   top: "$2",
   right: "$2",
+  fontSize: "$xs",
+  $$closeButtonSize: "$sizes$8",
+  width: "$$closeButtonSize",
+  height: "$$closeButtonSize",
+  backgroundColor: "$$closeButtonBg",
+  borderRadius: "$md",
+  dflex: "center",
+
+  "&:hover": {
+    $$closeButtonBg: "rgba(0, 0, 0, 0.06)",
+  },
 });
 
 type DialogContentPrimitiveProps = React.ComponentProps<
   typeof DialogPrimitive.Content
 >;
-type DialogContentProps = DialogContentPrimitiveProps & { css?: CSS };
+type DialogContentProps = DialogContentPrimitiveProps & {
+  css?: CSS;
+};
 
 const DialogContent = React.forwardRef<
   React.ElementRef<typeof StyledContent>,
@@ -49,7 +68,7 @@ const DialogContent = React.forwardRef<
       <StyledContent {...props} ref={forwardedRef}>
         {children}
         <StyledCloseButton>
-          <Cross1Icon />
+          <CloseIcon />
         </StyledCloseButton>
       </StyledContent>
     </StyledOverlay>
@@ -58,9 +77,29 @@ const DialogContent = React.forwardRef<
 
 DialogContent.displayName = "DialogContent";
 
+const DialogTitle = styled(DialogPrimitive.Title, {
+  flex: "0 1 0%",
+  fontSize: "$xl",
+  fontWeight: "$semibold",
+  paddingInline: "$6",
+  paddingBlock: "$4",
+});
+
+const DialogBody = styled(DialogPrimitive.Description, {
+  flex: "1 1 0%",
+  paddingInline: "$6",
+  paddingBlock: "$2",
+});
+
+const DialogFooter = styled("div", {
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "flex-end",
+  paddingInline: "$6",
+  paddingBlock: "$4",
+});
+
 const DialogClose = DialogPrimitive.Close;
-const DialogTitle = DialogPrimitive.Title;
-const DialogDescription = DialogPrimitive.Description;
 
 export {
   Dialog,
@@ -68,5 +107,25 @@ export {
   DialogContent,
   DialogClose,
   DialogTitle,
-  DialogDescription,
+  DialogBody,
+  DialogFooter,
+};
+
+export const ExampleDialog = () => {
+  const [open, setIsOpen] = React.useState(false);
+  return (
+    <Dialog open={open} onOpenChange={setIsOpen}>
+      {/* <DialogTrigger asChild>Open</DialogTrigger> */}
+      <Button onPointerDown={() => setIsOpen(true)}>Open Dialog</Button>
+      <DialogContent>
+        <DialogTitle>Dialog title</DialogTitle>
+        <DialogBody>Dialog description</DialogBody>
+        <DialogFooter>
+          <DialogClose asChild>
+            <Button color="teal">Cancel</Button>
+          </DialogClose>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
+  );
 };

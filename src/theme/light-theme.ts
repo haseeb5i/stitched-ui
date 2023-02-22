@@ -1,35 +1,34 @@
-import { gray, teal, blue, green, red } from "./colors";
+import { gray, teal, blue, green, red, blackAlpha, whiteAlpha } from "./colors";
 
 const lightTheme = {
   colors: {
-    // background colors
-    background: "$white",
-    foreground: "$black",
-    backgroundContrast: "$white",
     //semantic colors
     ...gray,
     ...teal,
     ...blue,
     ...green,
     ...red,
+    ...blackAlpha,
+    ...whiteAlpha,
 
-    // misc
-    accentSubtle: "$teal50",
-    accentMuted: "$teal300",
-    accentStatic: "$teal500",
+    // use case aliases
     accent: "$teal500",
     accentEmphasis: "$teal700",
-    // TODO: prefix with some namespace
-    bodyBg: "$white",
-    bodyText: "$gray800",
-    borderColor: "$gray200",
-    subtleBg: "$gray100",
-    placeholderColor: "$gray500",
+    accentStatic: "$teal500",
+    accentMuted: "$teal300",
+    accentSubtle: "$teal50",
     fg: "$gray700",
     fgEmphasis: "$gray900",
     fgMuted: "$gray600",
     fgSubtle: "$gray500",
     fgOnAccent: "$white",
+    
+    // misc colors
+    bodyBg: "$white",
+    bodyText: "$gray800",
+    borderColor: "$gray200",
+    subtleBg: "$gray100",
+    placeholderColor: "$gray500",
     link: "$blue600",
   },
   shadows: {

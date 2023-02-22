@@ -63,18 +63,28 @@ export const red = {
   red900: "#63171B",
 };
 
-/** semantic aliases for radix color */
+export const whiteAlpha = {
+  whiteAlpha50: "rgba(255, 255, 255, 0.04)",
+  whiteAlpha100: "rgba(255, 255, 255, 0.06)",
+  whiteAlpha200: "rgba(255, 255, 255, 0.08)",
+  whiteAlpha300: "rgba(255, 255, 255, 0.16)",
+  whiteAlpha400: "rgba(255, 255, 255, 0.24)",
+  whiteAlpha500: "rgba(255, 255, 255, 0.36)",
+  whiteAlpha600: "rgba(255, 255, 255, 0.48)",
+  whiteAlpha700: "rgba(255, 255, 255, 0.64)",
+  whiteAlpha800: "rgba(255, 255, 255, 0.80)",
+  whiteAlpha900: "rgba(255, 255, 255, 0.92)",
+};
 
-// primaryBase: "$blue1",
-// primaryBgSubtle: "$blue2",
-// primaryBg: "$blue3",
-// primaryBgHover: "$blue4",
-// primaryBgActive: "$blue5",
-// primaryLine: "$blue6",
-// primaryBorder: "$blue7",
-// primaryBorderHover: "$blue8",
-// primarySolid: "$blue9",
-// primary: "$blue9",
-// primarySolidHover: "$blue10",
-// primaryText: "$blue11",
-// primaryTextContrast: "$blue12",
+export const blackAlpha = {
+  blackAlpha50: "rgba(0, 0, 0, 0.04)",
+  blackAlpha100: "rgba(0, 0, 0, 0.06)",
+  blackAlpha200: "rgba(0, 0, 0, 0.08)",
+  blackAlpha300: "rgba(0, 0, 0, 0.16)",
+  blackAlpha400: "rgba(0, 0, 0, 0.24)",
+  blackAlpha500: "rgba(0, 0, 0, 0.36)",
+  blackAlpha600: "rgba(0, 0, 0, 0.48)",
+  blackAlpha700: "rgba(0, 0, 0, 0.64)",
+  blackAlpha800: "rgba(0, 0, 0, 0.80)",
+  blackAlpha900: "rgba(0, 0, 0, 0.92)",
+};

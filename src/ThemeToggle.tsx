@@ -6,8 +6,8 @@ export function ThemeToggle() {
   const [theme, setTheme] = useState("theme-default");
 
   useEffect(() => {
-    document.body.classList.remove("theme-default", darkTheme);
-    document.body.classList.add(theme);
+    document.documentElement.classList.remove("theme-default", darkTheme);
+    document.documentElement.classList.add(theme);
   }, [theme]);
 
   return (

@@ -15,16 +15,21 @@ import { Spinner } from "./components/Spinner";
 import { BellIcon } from "@chakra-ui/icons";
 import { Checkbox } from "./components/Checkbox";
 import { Label } from "./components/Label";
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "./components/Tabs";
+import { ExampleTab } from "./components/Tabs";
 import { Switch } from "./components/Switch";
 import { RadioGroup, Radio } from "./components/Radio";
-import { useEffect, useState } from "react";
+import { ExampleAlertDialog } from "./components/AlertDialog";
+import { ExampleDialog } from "./components/Dialog";
+import { ExamplePopover } from "./components/Popover";
+import { ExampleTooltip } from "./components/Tooltip";
+import { ExampleDrawer } from "./components/Drawer";
+import { ExampleDropdownMenu } from "./components/DropdownMenu";
 
 const App = () => {
   return (
     <Box css={{ maxWidth: 900, m: "2rem auto" }}>
       <ThemeToggle />
-
+      
       <Flex direction="column" gap="3" css={{ mb: 10 }}>
         <Flex gap="2">
           <Spinner size="xs" />
@@ -170,16 +175,25 @@ const App = () => {
         </Flex>
       </Flex>
       <Box css={{ mt: "$4" }}>
-        <Tabs defaultValue="0">
-          <TabsList variant="soft-rounded">
-            <TabsTrigger value="0">Tab 1</TabsTrigger>
-            <TabsTrigger value="1">Tab 2</TabsTrigger>
-            <TabsTrigger value="2">Tab 3</TabsTrigger>
-          </TabsList>
-          <TabsContent value="0">Content 1</TabsContent>
-          <TabsContent value="1">Content 2</TabsContent>
-          <TabsContent value="2">Content 3</TabsContent>
-        </Tabs>
+        <ExampleTab />
+      </Box>
+      <Box css={{ mt: "$4" }}>
+        <ExampleDropdownMenu />
+      </Box>
+      <Box css={{ mt: "$4" }}>
+        <ExamplePopover />
+      </Box>
+      <Box css={{ mt: "$4" }}>
+        <ExampleTooltip />
+      </Box>
+      <Box css={{ mt: "$4" }}>
+        <ExampleAlertDialog />
+      </Box>
+      <Box css={{ mt: "$4" }}>
+        <ExampleDialog />
+      </Box>
+      <Box css={{ mt: "$4" }}>
+        <ExampleDrawer />
       </Box>
     </Box>
   );

@@ -2,24 +2,7 @@
 
 This projects implements [chakra design](https://chakra-ui.com/figma/ui-kit) using [stitches](https://stitches.dev/) and [radix primitives](https://www.radix-ui.com/)
 
-
 ## Components
-### Forms
-- [x] Button
-- [x] Icon Button
-- [x] Input
-- [ ] Pin Input
-- [ ] Form Control
-- [x] Checkbox
-- [x] Radio 
-- [x] Switch 
-- [ ] Select 
-- [x] Range Slider 
-- [x] Textarea 
-
-### Typography
-- [ ] Text 
-- [x] Heading 
 
 ### Layout
 - [x] Box
@@ -29,10 +12,36 @@ This projects implements [chakra design](https://chakra-ui.com/figma/ui-kit) usi
 - [ ] Container
 - [ ] Stack
 
+### Forms
+- [x] Button
+- [x] Icon Button
+- [x] Input
+- [ ] Pin Input
+- [ ] Form Control
+- [x] Checkbox
+- [x] Radio
+- [x] Switch
+- [ ] Select
+- [x] Range Slider
+- [x] Textarea
+
+### Typography
+- [ ] Text
+- [x] Paragraph
+- [x] Heading
+
+### Overlay
+- [x] Alert Dialog
+- [x] Drawer
+- [x] Menu
+- [x] Dialog
+- [x] Popover
+- [x] Tooltip
+
 ### Data Display
 - [ ] Avatar
 - [ ] Badge
-- [ ] Card 
+- [ ] Card
 - [ ] Divider
 - [ ] Link
 - [ ] List
@@ -46,11 +55,17 @@ This projects implements [chakra design](https://chakra-ui.com/figma/ui-kit) usi
 - [ ] Spinner
 - [ ] Toast
 
-### Overlay
-- [ ] Alert Dialog
-- [ ] Drawer
-- [ ] Menu
-- [ ] Dialog
-- [ ] Popover
-- [ ] Tooltip
+### Disclosure
+- [ ] Accordion
+- [x] Tabs
 
+### Navigation
+- [ ] Breadcrumb
+- [ ] Pagination
+- [ ] Link
+- [ ] LinkOverlay
+
+### Others
+- [ ] Icon
+- [ ] Show/Hide
+- [ ] Visually Hidden

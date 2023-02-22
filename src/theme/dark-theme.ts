@@ -3,26 +3,22 @@
 const darkTheme = {
   colors: {
     //semantic colors
-    // misc
-    // accent: var(--chakra-colors-teal-300);
-    // accent-emphasis: var(--chakra-colors-teal-200);
-    // accent-muted: var(--chakra-colors-teal-200);
-    // accent-subtle: var(--chakra-colors-teal-800);
-    accentSubtle: "$teal50",
-    accentMuted: "$teal300",
-    accentStatic: "$teal500",
-    accent: "$teal500",
-    accentEmphasis: "$teal700",
-    // TODO: prefix with some namespace
-    bodyBg: "$gray800",
-    bodyText: "rgba(255, 255, 255, 0.92)",
-    borderColor: "rgba(255, 255, 255, 0.16)",
-    subtleBg: "$gray700",
-    placeholderColor: "rgba(255, 255, 255, 0.24)",
+    accent: "$teal300",
+    accentEmphasis: "$teal200",
+    accentMuted: "$teal200",
+    accentSubtle: "$teal800",
     fg: "$gray100",
     fgEmphasis: "$gray200",
     fgMuted: "$gray400",
     fgSubtle: "$gray300",
+    fgOnAccent: "inherit",
+    
+    // misc colors
+    bodyBg: "$gray800",
+    bodyText: "$whiteAlpha900",
+    borderColor: "$whiteAlpha300",
+    subtleBg: "$gray700",
+    placeholderColor: "$whiteAlpha400",
   },
   shadows: {
     xs: "-4px 0 15px rgb(0 0 0 / 50%)",
